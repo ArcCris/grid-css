@@ -1,5 +1,19 @@
+:root{
+    --color-fondos : #f1f2f6;
+    --color-naranjo : #E94E03;;
+    --color-naranja: #ffa500;
+    --color-anaranjado: #E56C32;
+    --color-azul : #0000ff;
+    --color-negro : #000000;
+    --color-blanco : #ffffff;
+    --color-chocolate : #d2691e;
+    --color-ruge: #dc143c;
+    --color-beach: #f5deb3; 
+}
+
+
 body{
-    background-color: F1F2F6;
+    background-color: var(--color-fondos);
     border: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -26,28 +40,61 @@ body{
 .content-cal{
     display: grid;
     grid-auto-columns: 330px 1fr;
-    grid-auto-rows: 75px 1fr 180px;
+    grid-auto-rows: 75px 26px 1fr 180px;
     grid-template-areas:
         "header header "
+        "left head"
         "left center"
         "left footer";
     height: 100vh;
 }
+
+.cabezeracalendario{
+    display: grid;
+    grid-auto-columns: 10% 30% 25% 25% 10%;
+    grid-template-areas:
+        "numero fecha capital cuota .";
+        padding: 5px 10px;
+}
+.calendarionumero{grid-area: numero; text-align: left;}
+.calendariofecha{grid-area: fecha;text-align: right;}
+.calendariocapital{grid-area: capital;text-align: right;}
+.calendariovalorcuota{grid-area: cuota;text-align: right;}
+
+.detallecalendario{
+    display: grid;
+    grid-auto-columns: 10% 30% 25% 25% 10%;
+    grid-template-areas:
+        "dnumero dfecha dcapital dcuota .";
+    padding: 5px 10px;  
+    font-size: smaller;  
+    font-weight: 100;
+    border-bottom: 1px solid var(--color-naranjo);
+}
+
+.dcalendarionumero{grid-area: dnumero; text-align: left;}
+.dcalendariofecha{grid-area: dfecha;text-align: right;}
+.dcalendariocapital{grid-area: dcapital;text-align: right;}
+.dcalendariovalorcuota{grid-area: dcuota;text-align: right;}
+
 .item{
-    background-color: #F1F2F6;
+    background-color: var(--color-fondos);
     padding: 1px;
 }
 .item-prod{
-    background-color: rgb(22, 61, 214);
+    background-color: var(--color-azul);
     padding: 1px;
 }
 .item-cal{
-    background-color: #F1F2F6;
+    background-color: var(--color-fondos);
     padding: 1px;
 }
 .item-cal.left{
     overflow-y: scroll;
 }
+.item-cal-head{
+}
+
 .header{
     grid-area: header;
 }
@@ -59,17 +106,25 @@ body{
 }
 .center{
     grid-area: center;
-    
+}
+.center-head{
+    grid-area: head;
+    background-color: chartreuse;
+}
+.center-cal{
+    grid-area: center;
+    overflow-y: scroll;
 }
 .footer{
     grid-area: footer;
+    background-color: darkgoldenrod;
 }
 .powered img{
-    background-color: black;
+    background-color: var(--color-negro);
 }
 .hero{
-    background: #F1F2F6;
-    color: black;
+    background: var(--color-fondos);
+    color: var(--colot-negro);
     padding: 32px 15px ;
     display: grid;
     justify-content: center;
@@ -83,7 +138,7 @@ body{
 }
 .form{
     text-align: center;
-    background-color: white;
+    background-color: var(--color-blanco);
     padding: 1.5em;
     border-radius: 10px;
     display: grid;
@@ -96,14 +151,14 @@ body{
     grid-area: powered;
 }
 .powered img:hover{
-    background-color: chocolate;
-    filter: crimson;
+    background-color: var(--color-chocolate);
+    filter:var(--color-ruge);
 }
 .form input{
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #E94E03;
+    border: 2px solid var(--color-naranjo);
     border-radius: 5px;
     box-sizing: border-box;
     margin-bottom: 10px;
@@ -111,20 +166,20 @@ body{
 text-align: center;
 }
 .form button{
-    background-color: #E94E03;
-    color: white;
+    background-color: var(--color-naranjo);
+    color: var(--color-blanco);
     padding: 10px 15px;
     border-radius: 5px;
     width: 400px;
     border: none;
     font-size: 16px;
-    border-bottom: 5px solid #E56C32;
+    border-bottom: 5px solid var(--color-anaranjado);
     display: inline-block;
     cursor: pointer;
     text-transform: uppercase;
 }
 .form button:hover{
-    background-color: chocolate;
+    background-color: var(--color-chocolate);
 }
 .login{
 grid-area: login;
@@ -135,18 +190,18 @@ grid-area: login;
     justify-content: flex-end;
     align-items: center;
     padding: 0 20px 0 0;
-    background-color: #E94E03;
-    color: white;
+    background-color: var(--color-naranjo);
+    color: var(--color-blanco);
 }
 p, h1, h2, h3, h4, h5, h6{
     margin: 0;
 }
 .detalleproducto{
-    background-color: wheat;
+    background-color: var(--color-beach);
     
     border-width: 1px 0 1px 0;
     border-style: solid;
-    border-color: orange;
+    border-color: var(--color-naranja);
     
 }
 .codigoproducto, .nombreproducto, .descripcionproducto{
@@ -159,7 +214,7 @@ p, h1, h2, h3, h4, h5, h6{
     height: 38px;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #E94E03;
+    border: 2px solid var(--color-naranjo);
     border-radius: 5px;
     box-sizing: border-box;
     margin: 1px 0 1px 0;
@@ -173,17 +228,17 @@ text-align: center;
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: wheat; 
+    background: var(--color-beach); 
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #E94E03; 
+    background: var(--color-naranjo); 
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: chocolate; 
+    background: var(--color-chocolate); 
   }
 
 @media screen and (max-width:768px){
